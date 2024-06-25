@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('users', UserController::class);
+Route::post('/login', [UserController::class, 'login'])
+                ->name('login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::apiResource('employees', EmployeeController::class);
 Route::apiResource('businesses', BusinessController::class);
 
