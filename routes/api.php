@@ -14,4 +14,8 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('web')->na
 Route::apiResource('employees', EmployeeController::class);
 Route::apiResource('businesses', BusinessController::class);
 
+Route::get('/csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
+
 require __DIR__ . '/auth.php';
